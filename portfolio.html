@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Software Development Portfolio</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Customizing Tailwind to use a modern, dark theme palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0F172A', // Slate 900 (Background)
+                        'secondary': '#1E293B', // Slate 800 (Card/Tile Background)
+                        'accent': '#3B82F6', // Blue 500 (Highlight/Primary Color)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for the simulated page transitions and hover effects */
+        body {
+            background-color: #0F172A; /* primary color */
+            min-height: 100vh;
+        }
+        /* Page content is initially hidden and revealed via JS */
+        .page-content, .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .page-content.active, .section-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Navigation Link Styling (Primary and Secondary) --- */
+        /* Active link styling */
+        .nav-link.active, .sub-nav-link.active {
+            border-bottom: 3px solid #3B82F6; /* Accent color border */
+            font-weight: 600;
+            color: white;
+        }
+        /* Hover state for both link types */
+        .nav-link:hover:not(.active), .sub-nav-link:hover:not(.active) {
+            color: #94A3B8;
+        }
+
+        /* Project Tile Hover Effect */
+        .project-tile {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .project-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-200">
+<!-- Main Header & Navigation -->
+<header class="bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <div class="text-2xl font-bold text-accent">
+                Prabal Saxena <span class="text-white">Portfolio</span>
+            </div>
+            <nav class="flex space-x-4 sm:space-x-8">
+                <!-- Navigation links use data-page attributes for JS switching -->
+                <a href="#" data-page="home" class="nav-link text-gray-400 px-3 py-2 text-md transition duration-150 ease-in-out active">About Me</a>
+                <a href="#" data-page="experience" class="nav-link text-gray-400 px-3 py-2 text-md transition duration-150 ease-in-out">Experience & Projects</a>
+                <a href="#" data-page="certs" class="nav-link text-gray-400 px-3 py-2 text-md transition duration-150 ease-in-out">Education & Certs</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content Area (Simulated Pages) -->
+<main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+    <!-- 1. ABOUT ME (Home Page) - Includes Summary and Key Achievements -->
+    <section id="page-home" class="page-content active">
+        <div class="grid md:grid-cols-3 gap-12">
+            <!-- Profile Card -->
+            <div class="md:col-span-1 bg-secondary p-8 rounded-xl shadow-2xl border-t-4 border-accent">
+                <!-- WARNING: Local file paths like "C:\Users\psaxena\Downloads\MyPhoto.jpg" will not load in a browser -->
+                <img src="https://placehold.co/128x128/1E293B/ffffff?text=P.S." alt="Professional Profile Photo Placeholder" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-gray-600">
+                <h2 class="text-3xl font-extrabold text-white text-center">Prabal Saxena</h2>
+                <p class="text-accent text-lg text-center mt-1 mb-6">Senior Software Developer (6 Years)</p>
+
+                <div class="space-y-3 text-sm">
+                    <p><span class="font-semibold text-accent">Email:</span> prabalsaxena64@gmail.com</p>
+                    <p><span class="font-semibold text-accent">Location:</span> Sarnia ON, CA N7S 4B4</p>
+                    <a href="#" class="block text-center mt-6 bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">Download Resume (PDF)</a>
+                </div>
+            </div>
+
+            <!-- Summary and Achievements -->
+            <div class="md:col-span-2 space-y-8">
+                <div class="bg-secondary p-8 rounded-xl shadow-2xl">
+                    <h1 class="text-4xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Professional Summary</h1>
+                    <p class="text-lg text-gray-300">
+                        <!-- Removed <li> tags from <p> block, using <br> for spacing -->
+                        Highly accomplished Software Engineer with over six years of experience specializing in Java development and cloud-native solutions across GCP and Azure.
+                        <br><br>
+                        Expertise includes spearheading application migration, performance optimization, and infrastructure automation. Proficient in implementing robust CI/CD pipelines and managing infrastructure as code using Terraform, Helm, and GitHub.
+                        <br><br>
+                        I design and deliver scalable REST APIs and microservices primarily with Spring Boot, bringing a complementary background in full-stack development (ASP.NET) and high-level (L3) Java support.
+                        <br><br>
+                        Dedicated to architecting and deploying high-performance, resilient solutions that drive technical innovation.
+                    </p>
+                </div>
+
+                <!-- Key Achievements Section -->
+                <div class="bg-secondary p-8 rounded-xl shadow-2xl">
+                    <h2 class="text-2xl font-bold text-white mb-4 text-accent">Key Achievements & Impact</h2>
+                    <ul class="space-y-4 list-disc list-inside pl-4 text-gray-300">
+                        <strong class="text-white">Architectural & Process Excellence</strong>
+                        <li>Led the full-scale migration of a legacy application from OpenShift to GCP, establishing and implementing core cloud architectural strategies.</li>
+                        <li>Drove end-to-end SDLC automation by setting up comprehensive workflows using GitHub Actions, Terraform, and Helm for environment provisioning, deployment, and security checks (including Veracode scanning).</li>
+                        <li>Elevated team proficiency by formalizing coding standards and mentoring 3 junior developers on best practices for scalable CI/CD pipelines and comprehensive unit testing.</li>
+                        <br>
+                        <strong class="text-white">Cloud Infrastructure & Reliability</strong>
+                        <li>As a Azure Cloud Support & Development Associate (Microsoft) performed deep-dive analysis on end-to-end infrastructure processes for Azure Clients.</li>
+                        <li>Leveraged enhanced core cloud infrastructure understanding to guide the development of highly scalable solutions designed for minimal downtime and superior reliability.</li>
+                        <br>
+                        <strong class="text-white">Performance Optimization & Efficiency</strong>
+                        <li>Optimized critical microservices and caching layers for quicker server responses, resulting in a quantifiable 45% reduction in API latency during peak usage periods.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. EXPERIENCE & PROJECTS (Simulated Page 2) -->
+    <section id="page-experience" class="page-content">
+
+        <!-- FIX 1: Refactored Sub-Navigation HTML for proper tab styling -->
+        <nav class="flex space-x-8 mb-8 border-b border-gray-700" style="justify-content: space-evenly;">
+            <a href="#" data-section="experience-tab" class="sub-nav-link text-2xl font-bold text-gray-400 py-3 transition duration-150 ease-in-out active">Professional Experience</a>
+            <a href="#" data-section="projects-tab" class="sub-nav-link text-2xl font-bold text-gray-400 py-3 transition duration-150 ease-in-out">Featured Projects</a>
+        </nav>
+
+        <section id="section-experience-tab" class="section-content active">
+            <!-- Professional Experience Timeline -->
+            <div class="space-y-12 mb-12">
+                <h2 class="text-3xl font-semibold text-accent">Work History (6 Years)</h2>
+                <div class="relative border-l border-gray-700 space-y-10">
+                    <!-- Job 1 -->
+                    <div class="ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-accent rounded-full -left-3 ring-8 ring-primary">
+                                <!-- SVG Icon for experience -->
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1H3a1 1 0 110-2h1v-2H3a1 1 0 110-2h1V7H3a1 1 0 110-2h1V5zm9 5a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1h3a1 1 0 001-1v-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                        <h3 class="mb-1 text-2xl font-semibold text-white">Google Cloud Java Developer<span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Most Recent</span></h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Jan 2023 - June 2024 | <b class="text-white"><u>Deutsche Bank</u></b></time>
+                        <p class="text-base font-normal text-gray-300">Architected & Contributed to Bank Notification System  Migration from On-prem to GCP Cloud.</p>
+                    </div>
+                    <!-- Job 2 -->
+                    <div class="ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-600 rounded-full -left-3 ring-8 ring-primary">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1H3a1 1 0 110-2h1v-2H3a1 1 0 110-2h1V7H3a1 1 0 110-2h1V5zm9 5a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1h3a1 1 0 001-1v-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                        <h3 class="mb-1 text-2xl font-semibold text-white">Azure Cloud Java Developer</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Oct 2021 - Jan 2023 | <b class="text-white"><u>Deloitte USI</u></b></time>
+                        <p class="text-base font-normal text-gray-300">Contributed to Car Insurance System Migration from On-prem to Azure Cloud. Implemented Azure Function Apps, Web Apps, Web Jobs and
+                            containerized microservices with RESTful APIs using Java 17, Spring Boot, Docker, and Kubernetes.</p>
+                    </div>
+                    <!-- Job 3 -->
+                    <div class="ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-600 rounded-full -left-3 ring-8 ring-primary">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1H3a1 1 0 110-2h1v-2H3a1 1 0 110-2h1V7H3a1 1 0 110-2h1V5zm9 5a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1h3a1 1 0 001-1v-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                        <h3 class="mb-1 text-2xl font-semibold text-white">Azure Cloud Development Support</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">May 2020 - Sep 2021 | <b class="text-white"><u>Microsoft (Contract)</u></b></time>
+                        <p class="text-base font-normal text-gray-300">Troubleshooting & monitoring issues related to Azure PaaS & SaaS services experienced by developers all over the world. Leveraging logging tools like : MS Application Insight, Fiddler, Wireshark, Crash Dumps and Memory Dumps.</p>
+                    </div>
+                    <!-- Job 4-->
+                    <div class="ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-600 rounded-full -left-3 ring-8 ring-primary">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1H3a1 1 0 110-2h1v-2H3a1 1 0 110-2h1V7H3a1 1 0 110-2h1V5zm9 5a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1h3a1 1 0 001-1v-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                        <h3 class="mb-1 text-2xl font-semibold text-white">Junior Full Stack Software Developer</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">April 2019 - April 2020 | <b class="text-white"><u>X.TRA.TECH Services</u></b></time>
+                        <p class="text-base font-normal text-gray-300">Integrated several APIs & UI enhansements on flights, hotels, bus, and Insurance booking B2B and B2C projects.</p>
+                    </div>
+                    <!-- JOb 5 -->
+                    <div class="ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-600 rounded-full -left-3 ring-8 ring-primary">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1H3a1 1 0 110-2h1v-2H3a1 1 0 110-2h1V7H3a1 1 0 110-2h1V5zm9 5a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1h3a1 1 0 001-1v-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                        <h3 class="mb-1 text-2xl font-semibold text-white">Java L3 Support</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">May 2020 - Sep 2021 | <b class="text-white"><u>Microsoft (Contract)</u></b></time>
+                        <p class="text-base font-normal text-gray-300">Began career with supporting development teams with production failuer issues on Java application & SQL server. L3 incidents troubleshooting and analysis before escalation to development team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Tiles Section -->
+        <section id="section-projects-tab" class="section-content">
+            <h2 class="text-3xl font-semibold text-accent mb-6">Project Showcase</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Tile 1 -->
+                <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(1)">
+                    <img src="https://placehold.co/400x220/1E293B/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform" class="w-full h-auto rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Scalable E-Commerce Platform</h3>
+                    <p class="text-gray-400 text-sm mb-3">React, Node.js, PostgreSQL, AWS Lambda</p>
+                    <p class="text-gray-300 text-sm">Built a fully responsive e-commerce site handling over 10,000 transactions per day. Features serverless payment processing.</p>
+                </div>
+
+                <!-- Project Tile 2 -->
+                <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(2)">
+                    <img src="https://placehold.co/400x220/1E293B/ffffff?text=Data+Visualization+Tool" alt="Data Visualization Tool" class="w-full h-auto rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Real-time Data Visualization Tool</h3>
+                    <p class="text-gray-400 text-sm mb-3">Vue.js, D3.js, WebSockets</p>
+                    <p class="text-gray-300 text-sm">Developed a single-page application for real-time monitoring of IoT sensor data with interactive charts.</p>
+                </div>
+
+                <!-- Project Tile 3 (Example with placeholder video/gif) -->
+                <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(3)">
+                    <!-- Placeholder for video/GIF preview -->
+                    <div class="w-full h-[220px] bg-gray-800 flex items-center justify-center rounded-lg mb-4">
+                        <span class="text-accent text-lg font-semibold">CI/CD Demo Preview (Video/GIF)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Automated Deployment Pipeline</h3>
+                    <p class="text-gray-400 text-sm mb-3">Jenkins, Docker, Kubernetes</p>
+                    <p class="text-gray-300 text-sm">Created a robust CI/CD pipeline reducing deployment time from 1 hour to 5 minutes.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- 3. EDUCATION & CERTIFICATIONS (Simulated Page 3) -->
+    <section id="page-certs" class="page-content">
+        <h1 class="text-4xl font-bold text-white mb-8 border-b border-gray-700 pb-2">Education & Professional Development</h1>
+
+        <!-- Education Section -->
+        <div class="mb-12 bg-secondary p-8 rounded-xl shadow-2xl">
+            <h2 class="text-3xl font-semibold text-accent mb-6">Education</h2>
+            <div class="space-y-6 border-l pl-4 border-gray-700">
+                <div class="relative">
+                    <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-6 ring-8 ring-secondary"></span>
+                    <h3 class="text-xl font-bold text-white">Master of Science in Computer Science</h3>
+                    <p class="text-gray-400">University of Technology, 2015 - 2017</p>
+                    <p class="text-gray-300 text-sm mt-1">Specialization in Distributed Systems and Cloud Computing.</p>
+                </div>
+                <div class="relative">
+                    <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-6 ring-8 ring-secondary"></span>
+                    <h3 class="text-xl font-bold text-white">Bachelor of Engineering in Software</h3>
+                    <p class="text-gray-400">Regional Engineering College, 2011 - 2015</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="bg-secondary p-8 rounded-xl shadow-2xl">
+            <h2 class="text-3xl font-semibold text-accent mb-6">Certifications</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cert 1 -->
+                <div class="bg-primary p-4 rounded-lg shadow-inner flex items-center space-x-4">
+                    <span class="text-4xl text-yellow-500">🏆</span>
+                    <div>
+                        <p class="font-bold text-white">AWS Certified Developer - Associate</p>
+                        <p class="text-sm text-gray-400">Issued: May 2023</p>
+                    </div>
+                </div>
+                <!-- Cert 2 -->
+                <div class="bg-primary p-4 rounded-lg shadow-inner flex items-center space-x-4">
+                    <span class="text-4xl text-green-500">✅</span>
+                    <div>
+                        <p class="font-bold text-white">Professional Scrum Master I (PSM I)</p>
+                        <p class="text-sm text-gray-400">Issued: Jan 2022</p>
+                    </div>
+                </div>
+                <!-- Cert 3 -->
+                <div class="bg-primary p-4 rounded-lg shadow-inner flex items-center space-x-4">
+                    <span class="text-4xl text-blue-500">💻</span>
+                    <div>
+                        <p class="font-bold text-white">Certified Kubernetes Application Developer (CKAD)</p>
+                        <p class="text-sm text-gray-400">Issued: Nov 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Project Modal (For detailed view/videos/images) -->
+<div id="projectModal" class="fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
+    <div class="bg-secondary p-6 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-start border-b border-gray-700 pb-3 mb-4">
+            <h2 id="modalTitle" class="text-3xl font-bold text-accent">Project Title</h2>
+            <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white transition-colors text-3xl font-light leading-none">&times;</button>
+        </div>
+
+        <div class="mb-6">
+            <h3 class="text-xl font-semibold text-white mb-2">Detailed Description</h3>
+            <p id="modalDescription" class="text-gray-300">Detailed description will go here.</p>
+        </div>
+
+        <!-- Placeholder for Images/Videos -->
+        <div class="space-y-6">
+            <h3 class="text-xl font-semibold text-white">Media Showcase (Image/Video)</h3>
+            <!-- Image Container -->
+            <img id="modalImage" src="" alt="Project Screenshot" class="w-full h-auto rounded-lg mb-4 hidden">
+
+            <!-- Video Container -->
+            <div id="modalVideoContainer" class="hidden aspect-video w-full bg-gray-800 rounded-lg">
+                <span id="modalVideo" class="text-gray-500 text-center block p-8">Video embedding (e.g., YouTube iframe or direct video tag) will appear here.</span>
+            </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-700 flex justify-end">
+            <button onclick="closeProjectModal()" class="bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Navigation and Interactivity -->
+<script>
+        // --- Project Data (Edit this data to populate your projects!) ---
+        const projects = {
+            1: {
+                title: "Scalable E-Commerce Platform",
+                description: "A high-availability e-commerce system built from the ground up to support millions of users. It features load balancing, microservices architecture for inventory and orders, and a seamless front-end experience using React/Redux. Achieved 99.9% uptime in the last year.",
+                media: { type: 'image', src: 'https://placehold.co/800x450/1E293B/ffffff?text=E-Commerce+Frontend+Screenshot' }
+            },
+            2: {
+                title: "Real-time Data Visualization Tool",
+                description: "This project processes live data streams from external APIs via WebSockets and visualizes key metrics using D3.js. The tool is critical for operations, enabling immediate decision-making by tracking system health and user activity in real-time.",
+                media: {
+                    type: 'video',
+                    // Use an actual embedded video link here (e.g., from YouTube or Vimeo)
+                    src: 'https://www.youtube.com/embed/g6g1gLzV_pM'
+                }
+            },
+            3: {
+                title: "Automated Deployment Pipeline",
+                description: "Implemented a fully automated CI/CD system using Jenkins, Docker, and Kubernetes. The pipeline includes linting, unit/integration testing, containerization, and blue/green deployment strategies, drastically reducing manual errors and time-to-market.",
+                media: { type: 'image', src: 'https://placehold.co/800x450/1E293B/ffffff?text=CI/CD+Pipeline+Flow+Diagram' }
+            }
+        };
+
+
+        // --- Primary Navigation Logic (Main Pages) ---
+        function changePage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            pages.forEach(page => page.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const activePage = document.getElementById(`page-${pageId}`);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // --- Secondary Navigation Logic (Experience/Project Tabs) ---
+        function changeSection(sectionId) {
+            const sections = document.querySelectorAll('#page-experience .section-content');
+            const subNavLinks = document.querySelectorAll('.sub-nav-link');
+
+            sections.forEach(section => section.classList.remove('active'));
+            subNavLinks.forEach(link => link.classList.remove('active'));
+
+            const activeSection = document.getElementById(`section-${sectionId}`);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            const activeLink = document.querySelector(`.sub-nav-link[data-section="${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+             // Keep scrolling to the top for a clean transition effect
+            window.scrollTo(0, 0);
+        }
+
+        // Attach event listeners and initial state on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Primary Nav Listeners
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    changePage(pageId);
+
+                    // If switching to the experience page, ensure the default sub-tab is active
+                    if (pageId === 'experience') {
+                        changeSection('experience-tab');
+                    }
+                });
+            });
+
+            // Secondary Nav Listeners
+            document.querySelectorAll('.sub-nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    changeSection(sectionId);
+                });
+            });
+
+            // Initialize: Ensure the home page is active on load
+            changePage('home');
+            // Initialize the default sub-section as active (required for the section-content display)
+            changeSection('experience-tab');
+        });
+
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+        const modalVideoContainer = document.getElementById('modalVideoContainer');
+        const modalVideo = document.getElementById('modalVideo');
+
+        function showProjectModal(projectId) {
+            const project = projects[projectId];
+
+            if (project) {
+                modalTitle.textContent = project.title;
+                modalDescription.textContent = project.description;
+
+                // Handle Media Visibility
+                modalImage.classList.add('hidden');
+                modalVideoContainer.classList.add('hidden');
+                modalVideo.innerHTML = ''; // Clear previous video content
+
+                if (project.media.type === 'image') {
+                    modalImage.src = project.media.src;
+                    modalImage.classList.remove('hidden');
+                } else if (project.media.type === 'video') {
+                    // Embed video (e.g., YouTube iframe)
+                    modalVideo.innerHTML = `
+                        <iframe class="w-full h-full rounded-lg"
+                            src="${project.media.src}"
+                            title="${project.title} Demo Video"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                    modalVideoContainer.classList.remove('hidden');
+                }
+
+                modal.classList.remove('hidden');
+                modal.classList.add('flex'); // Show the modal
+            } else {
+                console.error("Project not found:", projectId);
+            }
+        }
+
+        function closeProjectModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex'); // Hide the modal
+            // Stop video playback by clearing the iframe content
+            modalVideo.innerHTML = '';
+        }
+
+        // Close modal when clicking outside (on the overlay)
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
