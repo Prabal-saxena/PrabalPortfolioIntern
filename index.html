@@ -256,25 +256,30 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Tile 1 -->
                 <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(1)">
-                    <img src="https://placehold.co/400x220/1E293B/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform" class="w-full h-auto rounded-lg mb-4">
+<!--                    <img src="https://placehold.co/400x220/1E293B/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform" class="w-full h-auto rounded-lg mb-4">-->
+                    <video style="height: 211px;max-width: 100%;" controls poster="images/1282868.png">
+                        <source src="project_videos_images/demo.mp4" type="video/mp4">
+                        <p>Your browser does not support the video tag.</p>
+                    </video>
+                    <br>
                     <h3 class="text-xl font-bold text-white mb-2">Scalable E-Commerce Platform</h3>
-                    <p class="text-gray-400 text-sm mb-3">React, Node.js, PostgreSQL, AWS Lambda</p>
-                    <p class="text-gray-300 text-sm">Built a fully responsive e-commerce site handling over 10,000 transactions per day. Features serverless payment processing.</p>
+                    <p class="text-gray-400 text-sm mb-3">Java 17, HTML, CSS, Javascript, PostgreSQL, Google Kubernetes</p>
+                    <p class="text-gray-300 text-sm">Built a fully responsive e-commerce site handling over 10,000 transactions per day. Features serverless Data Processing.</p>
                 </div>
 
                 <!-- Project Tile 2 -->
-                <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(2)">
-                    <img src="https://placehold.co/400x220/1E293B/ffffff?text=Data+Visualization+Tool" alt="Data Visualization Tool" class="w-full h-auto rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-white mb-2">Real-time Data Visualization Tool</h3>
-                    <p class="text-gray-400 text-sm mb-3">Vue.js, D3.js, WebSockets</p>
-                    <p class="text-gray-300 text-sm">Developed a single-page application for real-time monitoring of IoT sensor data with interactive charts.</p>
-                </div>
+<!--                <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(2)">-->
+<!--                    <img src="https://placehold.co/400x220/1E293B/ffffff?text=Data+Visualization+Tool" alt="Data Visualization Tool" class="w-full h-auto rounded-lg mb-4">-->
+<!--                    <h3 class="text-xl font-bold text-white mb-2">Real-time Data Visualization Tool</h3>-->
+<!--                    <p class="text-gray-400 text-sm mb-3">Vue.js, D3.js, WebSockets</p>-->
+<!--                    <p class="text-gray-300 text-sm">Developed a single-page application for real-time monitoring of IoT sensor data with interactive charts.</p>-->
+<!--                </div>-->
 
                 <!-- Project Tile 3 (Example with placeholder video/gif) -->
                 <div class="project-tile bg-secondary p-6 rounded-xl shadow-lg border border-gray-700" onclick="showProjectModal(3)">
                     <!-- Placeholder for video/GIF preview -->
                     <div class="w-full h-[220px] bg-gray-800 flex items-center justify-center rounded-lg mb-4">
-                        <span class="text-accent text-lg font-semibold">CI/CD Demo Preview (Video/GIF)</span>
+                        <span class="text-accent text-lg font-semibold">CI/CD Demo Preview</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Automated Deployment Pipeline</h3>
                     <p class="text-gray-400 text-sm mb-3">Jenkins, Docker, Kubernetes</p>
@@ -294,7 +299,7 @@
             <div class="space-y-6 border-l pl-4 border-gray-700">
                 <div class="relative">
                     <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-6 ring-8 ring-secondary"></span>
-                    <h3 class="text-xl font-bold text-white">Postgraduate Diploma</h3>
+                    <h3 class="text-xl font-bold text-white">Postgraduate Diploma<span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Most Recent</span></h3>
                     <p class="text-gray-400"> Lambton College, Sep 2024 - April 2026</p>
                     <p class="text-gray-300 text-sm mt-1">Specialization in Full Stack Software Development.</p>
                 </div>
@@ -337,7 +342,6 @@
             </div>
         </div>
     </section>
-
 </main>
 
 <!-- Project Modal (For detailed view/videos/images) -->
@@ -378,7 +382,7 @@
             1: {
                 title: "Scalable E-Commerce Platform",
                 description: "A high-availability e-commerce system built from the ground up to support millions of users. It features load balancing, microservices architecture for inventory and orders, and a seamless front-end experience using React/Redux. Achieved 99.9% uptime in the last year.",
-                media: { type: 'image', src: 'https://placehold.co/800x450/1E293B/ffffff?text=E-Commerce+Frontend+Screenshot' }
+                media: { type: 'image', src: 'project_videos_images/app_architecture.png' }
             },
             2: {
                 title: "Real-time Data Visualization Tool",
@@ -391,8 +395,8 @@
             },
             3: {
                 title: "Automated Deployment Pipeline",
-                description: "Implemented a fully automated CI/CD system using Jenkins, Docker, and Kubernetes. The pipeline includes linting, unit/integration testing, containerization, and blue/green deployment strategies, drastically reducing manual errors and time-to-market.",
-                media: { type: 'image', src: 'https://placehold.co/800x450/1E293B/ffffff?text=CI/CD+Pipeline+Flow+Diagram' }
+                description: "Implemented a fully automated CI/CD system using Github, Docker, and Google Kubernetes. The pipeline includes linting, unit/integration testing, containerization, and blue/green deployment strategies, drastically reducing manual errors and time-to-market.",
+                media: { type: 'image', src: 'project_videos_images/ci-cd-architecture.png' }
             }
         };
 
